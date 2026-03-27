@@ -1,0 +1,29 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/.github/workflows/html-lint.yml b/.github/workflows/html-lint.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..c8557167df2f4d5f900d1d6d2833af12099db555
+--- /dev/null
++++ b/.github/workflows/html-lint.yml
+@@ -0,0 +1,19 @@
++name: HTML Lint
++
++on:
++  push:
++    branches: [ main, work ]
++  pull_request:
++
++jobs:
++  xmllint:
++    runs-on: ubuntu-latest
++    steps:
++      - name: Checkout
++        uses: actions/checkout@v4
++
++      - name: Install xmllint
++        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
++
++      - name: Validate HTML
++        run: xmllint --html --noout index.html
+ 
+EOF
+)
