@@ -1,0 +1,24 @@
+# Jekyll Configuration for GitHub Pages
+
+# Title
+title: My Awesome Site
+
+# Description
+description: This is my site using a custom HTML theme.
+
+# Base URL
+baseurl: ""
+
+# Theme configuration
+theme: my-custom-theme
+
+# Other configurations
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Build settings
+exclude:
+  -Gemfile
+  -Gemfile.lock
+  -node_modules
